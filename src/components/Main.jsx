@@ -3,8 +3,10 @@ import StarWars from "./StarWars.jsx";
 import AboutMe from "./AboutMe.jsx";
 import Contact from "./Contact.jsx";
 import {navItems} from "../utils/constants.js";
+import {PageContext, usePage} from "../context/PageContext.jsx";
 
-const Main = ({page}) => {
+const Main = () => {
+    const {page} = usePage();
 
     switch (page) {
         case navItems[1]:

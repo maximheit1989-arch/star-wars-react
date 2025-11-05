@@ -5,11 +5,19 @@ const OpeningCrawl = () => {
     const [openingCrawl, setOpeningCrawl] = useState();
 
     useEffect(() => {
-        const episode = Math.floor(Math.random() * 6) + 1;
-        fetch(`${base_url}/v1/films/${episode}`)
-            .then(response => response.json())
-            .then(data => setOpeningCrawl(data.opening_crawl))
-            .catch(() => setOpeningCrawl('Error on fetch opening crawl'));
+        const opening_crawl = sessionStorage.getItem("opening_crawl");
+        if (opening_crawl) {
+            setOpeningCrawl(opening_crawl)
+        } else {
+            const episode = Math.floor(Math.random() * 6) + 1;
+            fetch(`${base_url}/v1/films/${episode}`)
+                .then(response => response.json())
+                .then(data => {
+                    setOpeningCrawl(data.opening_crawl);
+                    sessionStorage.setItem("opening_crawl", data.opening_crawl);
+                })
+                .catch(() => setOpeningCrawl('Error on fetch opening crawl'));
+        }
     }, [])
 
     if (openingCrawl) {
