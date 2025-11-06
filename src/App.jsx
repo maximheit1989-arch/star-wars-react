@@ -10,14 +10,13 @@ function App() {
     const [page, setPage] = useState(navItems[0]);
 
     return (
-        <PageContext.Provider value={{page, setPage}}>
+        <PageContext value={{page, setPage}}>
             <div className={'container-fluid'}>
-                <Header changePage={setPage}/>
+                <Header/>
                 <Main page={page}/>
                 <Footer/>
             </div>
-        </PageContext.Provider>
+        </PageContext>
     )
 }
-
 export default App

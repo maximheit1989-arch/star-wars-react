@@ -22,20 +22,18 @@ const AboutMe = () => {
     }, [])
 
     return (
-        <>
-            {(!!hero) &&
-                <div className='fs-2 lh-lg text-justify ms-5'>
-                    <p><span className='display-3'>name:</span> {hero.name}</p>
-                    <p><span className='display-3'>gender:</span> {hero.gender}</p>
-                    <p><span className='display-3'>birth year:</span> {hero.birth_year}</p>
-                    <p><span className='display-3'>height:</span> {hero.height}</p>
-                    <p><span className='display-3'>mass:</span> {hero.mass}</p>
-                    <p><span className='display-3'>hair color:</span> {hero.hair_color}</p>
-                    <p><span className='display-3'>skin color:</span> {hero.skin_color}</p>
-                    <p><span className='display-3'>eye color:</span> {hero.eye_color}</p>
-                </div>
-            }
-        </>
+        hero && (
+            <div className="text-[1.5rem] leading-relaxed text-justify ml-5 space-y-3">
+                <p><span className="text-3xl font-bold text-main">Name:</span> {hero.name}</p>
+                <p><span className="text-3xl font-bold text-main">Gender:</span> {hero.gender}</p>
+                <p><span className="text-3xl font-bold text-main">Birth year:</span> {hero.birth_year}</p>
+                <p><span className="text-3xl font-bold text-main">Height:</span> {hero.height}</p>
+                <p><span className="text-3xl font-bold text-main">Mass:</span> {hero.mass}</p>
+                <p><span className="text-3xl font-bold text-main">Hair color:</span> {hero.hair_color}</p>
+                <p><span className="text-3xl font-bold text-main">Skin color:</span> {hero.skin_color}</p>
+                <p><span className="text-3xl font-bold text-main ">Eye color:</span> {hero.eye_color}</p>
+            </div>
+        )
     );
 };
 
